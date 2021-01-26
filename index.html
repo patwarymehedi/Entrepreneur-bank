@@ -94,11 +94,7 @@
         //    const currentBalanceNumber = parseFloat(currentBalance);
         //    const totalBalance = depositNumber + currentBalanceNumber; 
         //    document.getElementById('currentBalance').innerText = totalBalance;
-        
-        if (depositAmount == "") {
-                alert("Amount must be filled out");
-                return false;
-            }
+       
 
            document.getElementById('depositAmount').value = "";
        })
@@ -117,6 +113,11 @@
        })
        function getInputNumber(id){
                 const amount = document.getElementById(id).value;
+                 
+            if (amount === "" || isNaN(amount) ) {
+                alert("Amount must be filled out");
+                return false;
+            }
                 const amountNumber = parseFloat(amount);
                 return amountNumber;
        }
@@ -127,12 +128,7 @@
            const totalAmount = addedNumber + currentAmountNumber; 
            document.getElementById(id).innerText = totalAmount;
        }
-    //    function updateSpanText(id,withdrawNumber){
-    //        const currentAmount = document.getElementById(id).innerText;
-    //        const currentAmountNumber = parseFloat(currentAmount);
-    //        const totalAmount = withdrawNumber - currentAmountNumber; 
-    //        document.getElementById(id).innerText = totalAmount;
-    //    }
+    
 
    </script>
 </body>
