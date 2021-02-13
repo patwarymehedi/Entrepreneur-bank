@@ -12,18 +12,35 @@
 </head>
 
 <body>
-    <div id="login-area">
+    <section id="loginArea" class="py-5">
+        <div class="container">
+            <h1 class="text-center mb-4">Welcome to Entrepreneur Bank</h1>
+            <img class="center" src="images/bank-icon.png" alt="">
+            <!-- Submit Area -->
+            <form id="formSubmit" action="" class="p-5" autocomplete="on">
+                <h2>Login</h2>
+                <div class="col-12 mb-4">
+                    <input class="form-control" type="email" placeholder="Email" required>
+                </div>
+                <div class="col-12 mb-4">
+                    <input class="form-control" type="password" placeholder="Password" required>
+                </div>
+                <input type="submit" value="Enter" class="btn btn-success">
+            </form>
+        </div>
+    </section>
+    <!-- <div id="login-area">
         <h1 class="text-center">Welcome to Entrepreneur Bank</h1>
         <img class="center" src="images/bank-icon.png" alt="">
         <div class="submit-area">
             <h4>Login</h4>
-            <input type="text" class="form-control" placeholder="Enter your e-mail">
+            <input id="email" type="text" class="form-control" placeholder="Enter your e-mail">
             <br>
-            <input type="password" class="form-control" placeholder="Enter your password">
+            <input id="password" type="password" class="form-control" placeholder="Enter your password">
             <br>
             <button id="login" class="btn btn-success">Enter</button>
         </div>
-    </div>
+    </div> -->
     <div id="transaction-area">
         <div class="row">
             <div class="col-md-4">
@@ -68,84 +85,7 @@
             </div>
         </div>
     </div>
-    <script>
-        //login button event handler
-        const loginButton = document.getElementById('login');
-        loginButton.addEventListener('click', function () {
-            const loginArea = document.getElementById('login-area');
-            loginArea.style.display = 'none';
-            const transactionArea = document.getElementById('transaction-area');
-            transactionArea.style.display = 'block';
-        })
-
-        //transaction button event handler
-
-        //depositButton event handler
-
-        const depositButton = document.getElementById('addDeposit');
-        depositButton.addEventListener('click', function () {
-            const depositNumber = getInputNumber('depositAmount')
-            //    const depositAmount = document.getElementById('depositAmount').value;
-            //    const depositNumber = parseFloat(depositAmount);
-
-            if (depositNumber < 0) {
-                alert('deposit number cannot be negative or zero');
-                document.getElementById('depositAmount').value = "";
-            }
-            else {
-                updateSpanText('currentDeposit', depositNumber);
-                updateSpanText('currentBalance', depositNumber);
-                document.getElementById('depositAmount').value = "";
-            }
-
-
-
-            //    const currentDeposit = document.getElementById('currentDeposit').innerText;
-            //    const currentDepositNumber = parseFloat(currentDeposit);
-            //    const totalDeposit = depositNumber + currentDepositNumber;
-            //    document.getElementById('currentDeposit').innerText = totalDeposit;
-
-            //    const currentBalance = document.getElementById('currentBalance').innerText;
-            //    const currentBalanceNumber = parseFloat(currentBalance);
-            //    const totalBalance = depositNumber + currentBalanceNumber; 
-            //    document.getElementById('currentBalance').innerText = totalBalance;
-
-
-
-        })
-
-        //withdrawButton event handler
-
-        const withdrawButton = document.getElementById('addWithdraw');
-        withdrawButton.addEventListener('click', function () {
-            const withdrawNumber = getInputNumber('withdrawAmount')
-
-            updateSpanText('currentWithdraw', withdrawNumber);
-
-            updateSpanText('currentBalance', -1 * withdrawNumber);
-
-            document.getElementById('withdrawAmount').value = "";
-        })
-        function getInputNumber(id) {
-            const amount = document.getElementById(id).value;
-
-            if (amount === "" || isNaN(amount)) {
-                alert("Amount must be filled out");
-                return false;
-            }
-            const amountNumber = parseFloat(amount);
-            return amountNumber;
-        }
-
-        function updateSpanText(id, addedNumber) {
-            const currentAmount = document.getElementById(id).innerText;
-            const currentAmountNumber = parseFloat(currentAmount);
-            const totalAmount = addedNumber + currentAmountNumber;
-            document.getElementById(id).innerText = totalAmount;
-        }
-
-
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

@@ -14,6 +14,16 @@ body{
     box-shadow: 5px 5px 10px gray;
     padding: 40px;
 }
+#loginArea{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#loginArea #formSubmit{
+    border-radius: 10px;
+    box-shadow: 5px 8px 20px gray;
+}
 #transaction-area{
     display: none;
 }
